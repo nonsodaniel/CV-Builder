@@ -8,12 +8,12 @@ import Search from './components/search/Search';
 const App = () => {
   return (
     <BrowserRouter>
-          <div className="app">
-            <Header />
-            <Route exact path="/" component={Home} />
-            <Route exact path="/search" component={Search} />
-            <Footer />
-          </div>
+      <div className="app">
+        <Header />
+        <Route exact path="/" component={Home} />
+        <Route exact path="/search" component={Search} />
+        {/* <Footer /> */}
+      </div>
     </BrowserRouter>
   );
 };

@@ -1,8 +1,16 @@
-import React from "react";
+import React, { Component } from "react";
 import SearchNav from "./SearchNav";
+import SearchWrap from "./SearchWrap";
 
-const Search = () => {
-  return <SearchNav />;
-};
+export class Search extends Component {
+  render() {
+    return (
+      <div>
+        <SearchNav />
+        <SearchWrap />
+      </div>
+    );
+  }
+}
 
 export default Search;

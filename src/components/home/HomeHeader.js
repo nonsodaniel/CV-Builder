@@ -21,11 +21,14 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "1rem",
     display: "flex",
   },
-
+toolBar:{
+  minHeight: '100%'
+},
   AppBar: {
     backgroundColor: "#353b47",
     backgroundSize: "cover",
-    height: "60px",
+    height: 50,
+    boxShadow: 'none'
   },
 
   mobileToggle: {
@@ -41,7 +44,6 @@ const useStyles = makeStyles((theme) => ({
 const HomeHeader = () => {
   const classes = useStyles();
   return (
-    <>
       <AppBar
         position="static"
         className={`${classes.AppBar}  ${classes.root}`}
@@ -67,7 +69,6 @@ const HomeHeader = () => {
           </Toolbar>
         </Grid>
       </AppBar>
-    </>
   );
 };
 

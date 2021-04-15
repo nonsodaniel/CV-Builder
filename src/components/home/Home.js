@@ -9,7 +9,6 @@ import HomeHeader from "./HomeHeader";
 const Home = () => {
   return (
     <div>
-      <HomeHeader />
       <Hero />
       <Services />
       <Dividers />
