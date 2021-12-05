@@ -9,6 +9,7 @@ import {
   Toolbar,
   Paper,
   Divider,
+  Container,
 } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
@@ -19,15 +20,17 @@ import SearchIcon from "@material-ui/icons/Search";
 import DirectionsIcon from "@material-ui/icons/Directions";
 const useStyles = makeStyles((theme) => ({
   root: {
-    position: "sticky",
-    top: 72,
-    zIndex: 999,
+   
   },
   container: {
     width: 1170,
     margin: "auto",
     display: "flex",
     justifyContent: "space-between",
+    [theme.breakpoints.down("sm")]: {
+        flexDirection: "column",
+        justifyContent: 'space-around'
+    },
   },
 
   button: {
@@ -38,11 +41,16 @@ const useStyles = makeStyles((theme) => ({
   },
 
   AppBar: {
+    position: "fixed",
     backgroundColor: "#fff",
     height: 70,
     borderBottom: "1px solid #eee",
     boxShadow: "none",
     padding: "15px 0",
+    
+    [theme.breakpoints.down("sm")]: {
+      height: 120,
+  },
   },
   navText: {
     fontSize: 14,
@@ -58,6 +66,9 @@ const useStyles = makeStyles((theme) => ({
   },
   inputWrap: {
     display: "flex",
+    [theme.breakpoints.down("sm")]: {
+   flexDirection: "column"
+  },
   },
 
   InputRoot: {
@@ -95,41 +106,43 @@ const SearchNav = () => {
   const classes = useStyles();
   return (
     <section>
-        <AppBar position="static" className={`${classes.AppBar} `}>
-          <Box sm={12} xs={12} className={classes.container}>
-            <Box className={`pryTxtColor ${classes.navTitle}`}>Job Search</Box>
-            <Box className={classes.inputWrap}>
-              <Box component="form" className={classes.InputRoot}>
-                <IconButton className={classes.iconButton} aria-label="search">
-                  <SearchIcon />
-                </IconButton>
-                <InputBase
-                  className={classes.input}
-                  placeholder="Job title, Keyword, Company"
-                  inputProps={{ "aria-label": "search google maps" }}
-                />
-              </Box>
-              <Box
-                component="form"
-                className={`${classes.InputRoot} ${classes.InputRoot_2}`}
-              >
-                <InputBase
-                  className={classes.input}
-                  placeholder="Search Google Maps"
-                  inputProps={{ "aria-label": "search google maps" }}
-                />
-              </Box>
-              <Button
-                variant="contained"
-                color="success"
-                ml={3}
-                className={classes.btnSearch}
-              >
-                Primary
-              </Button>
-            </Box>
+      <AppBar position="static" className={`${classes.AppBar} `}>
+        <Container className={classes.container}>
+          <Box className={`pryTxtColor ${classes.navTitle}`} sm={12} xs={12}>
+            Job Search
           </Box>
-        </AppBar>
+          <Box className={classes.inputWrap} sm={12} xs={12}>
+            <Box component="form" className={classes.InputRoot}>
+              <IconButton className={classes.iconButton} aria-label="search">
+                <SearchIcon />
+              </IconButton>
+              <InputBase
+                className={classes.input}
+                placeholder="Job title, Keyword, Company"
+                inputProps={{ "aria-label": "search google maps" }}
+              />
+            </Box>
+            <Box
+              component="form"
+              className={`${classes.InputRoot} ${classes.InputRoot_2}`}
+            >
+              <InputBase
+                className={classes.input}
+                placeholder="Search Google Maps"
+                inputProps={{ "aria-label": "search google maps" }}
+              />
+            </Box>
+            <Button
+              variant="contained"
+              color="success"
+              ml={3}
+              className={classes.btnSearch}
+            >
+              Primary
+            </Button>
+          </Box>
+        </Container>
+      </AppBar>
     </section>
   );
 };

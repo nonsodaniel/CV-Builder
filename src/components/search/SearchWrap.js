@@ -14,6 +14,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    position: "relative",
+    top: "4.3rem",
+  },
   leftTitle: {
     fontWeight: 600,
     fontSize: 12,
@@ -82,9 +86,9 @@ const SearchWrap = () => {
     setAge(event.target.value);
   };
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="lg" className={classes.root}>
       <Grid container>
-        <Grid item xs={12} md={3} sm={6} className={classes.leftBox}>
+        <Grid item xs={12} md={3} sm={12} className={classes.leftBox}>
           <Typography variant="h6" className={classes.leftTitle}>
             FILTER YOUR SEARCH
           </Typography>
@@ -130,7 +134,7 @@ const SearchWrap = () => {
             <Link className={classes.txtLinks}>Saved Jobs</Link>
           </Box>
         </Grid>
-        <Grid item xs={12} md={8} sm={6} className={classes.searchResult}>
+        <Grid item xs={12} md={8} sm={12} className={classes.searchResult}>
           World
         </Grid>
       </Grid>
